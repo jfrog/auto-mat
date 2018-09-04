@@ -15,13 +15,16 @@ Auto-mat will also generate HTML reports which might save you the effort of runn
 
 ```docker run -it --mount src=$(pwd),target=/data,type=bind docker.jfrog.io/auto-mat heap1 11g```
 
+# Here is a Jenkins job to analyze heap dump: 
+https://ci.jfrog.info/job/DevOps/job/Bintray/job/bintray_heap_dump_analyzer/
+
 # How to build:
 
 ```docker build . -t auto-mat:<tag name>```
+
+Jenkins job that builds (and pushes to artifactory) this image: https://ci.jfrog.info/job/DevOps/job/Bintray/job/auto-mat-docker-build/
 
 # How it works?
 
 This is a simple docker wrapper for tools that came from eclipse MAT. Eclipse MAT exposes command line tool to generate indexes and reports.
 
-# TODO:
-Build the image and store in docker registry
