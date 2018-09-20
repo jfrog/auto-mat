@@ -10,5 +10,4 @@ else
 fi
 
 echo ${DUMPFILE}
-/opt/mat/ParseHeapDump.sh ${DUMPFILE} org.eclipse.mat.api:suspects org.eclipse.mat.api:overview \
-org.eclipse.mat.api:top_components -vmargs -Xmx${MAXHEAP} -XX:-UseGCOverheadLimit
+/opt/mat/ParseHeapDump.sh ${DUMPFILE} org.eclipse.mat.api:suspects -vmargs -Xmx${MAXHEAP} -XX:-UseGCOverheadLimit
