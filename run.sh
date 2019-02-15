@@ -2,6 +2,8 @@
 DUMPFILE=$1
 MAXHEAP="16g"
 SUSPECTS="org.eclipse.mat.api:suspects"
+OVERVIEW="org.eclipse.mat.api:overview"
+TOP_COMPONENTS="org.eclipse.mat.api:top_components"
 
 if [ -z ${2+x} ]; then
     echo "Max heap not set, using default $MAXHEAP";
@@ -11,11 +13,23 @@ else
 fi
 
 if [ -z ${3+x} ]; then
-    echo "Skip suspects not set. Generating suspects report.";
+    echo "No reports requested. Skipping generation";
 else
-    echo "Skipping suspects report";
-    SUSPECTS=""
+    reports_for_command=""
+    reports=$(echo $3 | tr "," "\n")
+    for report in $reports
+    do
+        if [ $report == 'suspects' ]; then
+          reports_for_command="$reports_for_command $SUSPECTS"
+        fi
+        if [ $report == 'overview' ]; then
+          reports_for_command="$reports_for_command $OVERVIEW"
+        fi
+        if [ $report == 'top_components' ]; then
+          reports_for_command="$reports_for_command $TOP_COMPONENTS"
+        fi
+    done
 fi
 
-echo ${DUMPFILE}
-/opt/mat/ParseHeapDump.sh ${DUMPFILE} $SUSPECTS -vmargs -Xmx${MAXHEAP} -XX:-UseGCOverheadLimit
+echo reports: ${$reports_for_command}
+/opt/mat/ParseHeapDump.sh ${DUMPFILE} $reports_for_command -vmargs -Xmx${MAXHEAP} -XX:-UseGCOverheadLimit
