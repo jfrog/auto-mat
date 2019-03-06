@@ -16,7 +16,7 @@ if [ -z ${3+x} ]; then
     echo "No reports requested. Skipping generation";
 else
     reports_for_command=""
-    reports=$(echo $3 | tr "," "\n")
+    reports=$(echo $3 | tr "," " " | xargs)
     for report in $reports
     do
         if [ $report == 'suspects' ]; then

@@ -1,8 +1,9 @@
 # How to run?
 cd to the location of your heap dump file, then:
-```docker run --mount src=$(pwd),target=/data,type=bind -it docker.jfrog.io/auto-mat <dump filename> <heap size for mat>```
-This will generate index files and 3 reports:
-suspects, overview, top_components
+```docker run --mount src=$(pwd),target=/data,type=bind -it docker.jfrog.io/auto-mat <dump filename> <heap size for mat> <reports>```
+dump filename - hprof heap dump
+heap size for mat - how much memory to consume for this process
+reports - a comma separated list of the following: suspects, overview, top_components. If empty no reports will be generated.
 
 # What problem does it solve?
 
@@ -13,7 +14,7 @@ Auto-mat will also generate HTML reports which might save you the effort of runn
 
 ### Example:
 
-```docker run -it --mount src=$(pwd),target=/data,type=bind docker.jfrog.io/auto-mat heap1 11g```
+```docker run -it --mount src=$(pwd),target=/data,type=bind docker.jfrog.io/auto-mat heap1.hprof 11g suspects,overview```
 
 # Here is a Jenkins job to analyze heap dump: 
 https://ci.jfrog.info/job/DevOps/job/Bintray/job/bintray_heap_dump_analyzer/
