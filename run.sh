@@ -31,5 +31,5 @@ else
     done
 fi
 
-echo reports: ${reports_for_command}
+echo reports to generate: ${reports_for_command}
 /opt/mat/ParseHeapDump.sh ${DUMPFILE} $reports_for_command -vmargs -Xmx${MAXHEAP} -XX:-UseGCOverheadLimit
