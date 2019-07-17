@@ -1,3 +1,6 @@
+# What is auto-mat
+Automat is a docker container that allows you to analyse a Java heap dump from the commandline without any GUI involved. You can get html reports directly from the commandline.
+
 # How to run?
 cd to the location of your heap dump file, then:
 ```docker run --mount src=$(pwd),target=/data,type=bind -it auto-mat <dump filename> <heap size for mat> <reports>```
