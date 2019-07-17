@@ -30,3 +30,10 @@ Auto-mat will also generate HTML reports which might save you the effort of runn
 
 This is a simple docker wrapper for tools that came from eclipse MAT. Eclipse MAT exposes command line tool to generate indexes and reports.
 
+# Credits
+This tool uses the ubuntu:18.04 docker image 
+https://hub.docker.com/_/ubuntu
+
+This tool uses the eclipse mat project 
+https://www.eclipse.org/mat/
+
