@@ -1,4 +1,4 @@
-# What is auto-mat
+# What is auto-mat?
 Automat is a docker container that allows you to analyse a Java heap dump from the commandline without any GUI involved. You can get html reports directly from the commandline.
 
 # How to run?
