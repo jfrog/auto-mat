@@ -1,8 +1,11 @@
 # How to run?
 cd to the location of your heap dump file, then:
 ```docker run --mount src=$(pwd),target=/data,type=bind -it docker.jfrog.io/auto-mat <dump filename> <heap size for mat> <reports>```
+
 dump filename - hprof heap dump
+
 heap size for mat - how much memory to consume for this process
+
 reports - a comma separated list of the following: suspects, overview, top_components. If empty no reports will be generated.
 
 # What problem does it solve?
