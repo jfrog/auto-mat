@@ -32,6 +32,7 @@ This is a simple docker wrapper for tools that came from eclipse MAT. Eclipse MA
 
 # Credits
 This tool uses:
+
 ubuntu:18.04 docker image https://hub.docker.com/_/ubuntu
 
 eclipse mat project https://www.eclipse.org/mat/
