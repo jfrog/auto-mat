@@ -1,15 +1,23 @@
 # What is auto-mat?
-Automat is a docker container that allows you to analyse a Java heap dump from the commandline without any GUI involved. You can get html reports directly from the commandline.
+Auto-mat is a docker container that allows you to analyse a Java heap dump from the commandline without any GUI involved. You can get html reports directly from the commandline.
 
 # How to run?
+All you need is Docker installed on your machine.
+
 cd to the location of your heap dump file, then:
-```docker run --mount src=$(pwd),target=/data,type=bind -it auto-mat <dump filename> <heap size for mat> <reports>```
+```docker run --mount src=$(pwd),target=/data,type=bind -it docker.bintray.io/jfrog/auto-mat <dump filename> <heap size for mat> <reports>```
 
-dump filename - hprof heap dump
+dump filename - hprof heap dump file name
 
-heap size for mat - how much memory to consume for this process
+heap size for mat - how much memory to consume for this process e.g (5g)
 
-reports - a comma separated list of the following: suspects, overview, top_components. If empty no reports will be generated.
+reports - a comma separated list of the following: suspects, overview, top_components. If empty no reports will be generated. You probably want the suspects.
+
+
+### Example:
+
+```docker run -it --mount src=$(pwd),target=/data,type=bind docker.bintray.io/jfrog/auto-mat heap1.hprof 11g suspects,overview```
+
 
 # What problem does it solve?
 
@@ -36,4 +44,7 @@ This tool uses:
 ubuntu:18.04 docker image https://hub.docker.com/_/ubuntu
 
 eclipse mat project https://www.eclipse.org/mat/
+
+Open jdk https://openjdk.java.net/
+
 
