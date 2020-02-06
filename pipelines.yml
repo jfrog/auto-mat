@@ -1,0 +1,32 @@
+pipelines:
+  - name: auto-mat
+resources:
+  - name: auto-mat-git-repo
+    type: GitRepo
+    configuration:
+      gitProvider: AutoMatGithub
+      path: jfrog/auto-mat
+    branches:
+      include: pipelines
+steps:
+#  - name: docker_build
+#    type: DockerBuild
+#    configuration:
+#      affinityGroup: dockerGroup
+#      dockerFileLocation: .
+#      dockerFileName: Dockerfile
+#      dockerImageName: 'pipe-master.jfrog.info:8081/docker-local/alpine37'
+#      dockerImageTag: ${run_number}
+#      inputResources:
+#        - name: myDockerRepo
+#      integrations:
+#        - name: myArtifactory
+
+  - name: step_2
+    type: Bash
+    configuration:
+      inputSteps:
+        - name: step_1               # Execute this step after the prior step
+    execution:
+      onExecute:
+        - echo "Goodbye World!"

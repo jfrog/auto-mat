@@ -1,0 +1,24 @@
+
+
+plugins {
+    id 'java'
+}
+
+repositories {
+    jcenter()
+}
+
+version = file('version.txt').text.trim()
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+test {
+    useJUnit()
+    systemProperty "docker.tag", "$version"
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+    compile 'commons-io:commons-io:2.5'
+    compile 'org.zeroturnaround:zt-exec:1.10'
+}
