@@ -20,7 +20,7 @@ pipeline {
             steps {
                 git branch: 'master',
                         credentialsId: 'jenkins-ssh',
-                        url: 'ssh://git@github.com:jfrog/auto-mat.git'
+                        url: 'git@github.com:jfrog/auto-mat.git'
             }
         }
         stage('Bump and set version') {
