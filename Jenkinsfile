@@ -19,7 +19,7 @@ pipeline {
         stage('Git checkout') {
             steps {
                 git branch: 'master',
-                        credentialsId: 'galgithub',
+                        credentialsId: 'jenkins-ssh',
                         url: 'https://github.com/jfrog/auto-mat'
             }
         }
