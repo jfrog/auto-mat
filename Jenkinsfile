@@ -58,7 +58,7 @@ pipeline {
             steps {
                 script {
                     sh "git commit -m 'auto version bump' -- version.txt"
-                    sh "git push origin $BRANCH_NAME"
+                    sh "git push"
                 }
             }
         }
