@@ -18,7 +18,9 @@ pipeline {
         }
         stage('Git checkout') {
             steps {
-                checkout scm
+                git branch: 'master',
+                        credentialsId: 'galgithub',
+                        url: 'https://github.com/jfrog/auto-mat'
             }
         }
         stage('Bump and set version') {
