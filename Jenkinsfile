@@ -58,7 +58,7 @@ pipeline {
             steps {
                 script {
                     sh "git commit -m 'auto version bump' -- version.txt"
-                    sh "git push"
+                    sh "git push -u"
                 }
             }
         }
