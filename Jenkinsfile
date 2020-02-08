@@ -58,7 +58,7 @@ pipeline {
             steps {
                 script {
                     sh "git commit -m 'auto version bump' -- version.txt"
-                    sh "git push --set-upstream $env.GIT_BRANCH"
+                    sh "git push --set-upstream origin master"
                 }
             }
         }
